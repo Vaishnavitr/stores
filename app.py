@@ -1,3 +1,4 @@
+import os
 from flask import Flask
 from flask_restful import Api
 from flask_jwt import JWT
@@ -8,7 +9,8 @@ from resources.store import StoreList, Store
 app = Flask(__name__)
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_DATABASE_URL'] = 'sqlite:///data.db'
+app.config['SQLALCHEMY_DATABASE_URL'] = os.environ('DATABASE_URL','sqlite:///data.db')
+#'postgres://xultkmyzxeixzw:b25e8b8e71b57712136b0c738b13f1c15b1c2ae63476b63e1439a0c2a75c1348@ec2-54-78-127-245.eu-west-1.compute.amazonaws.com:5432/df218i3v70prhi')
 # turn off flask modification tracker which are not saved and doesnt turn of sqlalcourse tracker
 app.secret_key = 'vaish'
 api = Api(app)
