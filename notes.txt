@@ -1,0 +1,12 @@
+models are internal representation of the entity
+apis respond with resources
+
+resources contain get/post/delete methods.
+any other methods should be in models file
+
+
+
+sqlalchemy is used to avoid use of sqlite to insert/update/delete data into db
+
+
+Instructor used flask-sqlalchemy, flask-restful, flask-jwt
